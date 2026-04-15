@@ -1,0 +1,32 @@
+name: build-windows-demo-exe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_windows_exe:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r v0_3_013_windows_exe_build_kit/requirements_exe.txt
+
+      - name: Build EXE
+        working-directory: v0_3_013_windows_exe_build_kit
+        run: |
+          python -m PyInstaller --noconfirm AI_Workflow_Demo.spec
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI_Workflow_Demo_EXE
+          path: v0_3_013_windows_exe_build_kit/dist/AI_Workflow_Demo.exe

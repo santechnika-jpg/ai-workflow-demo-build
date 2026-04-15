@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/error_output.schema.json",
+  "title": "CliErrorOutputV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "error"
+  ],
+  "properties": {
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error_code",
+        "error_type",
+        "field_path",
+        "message"
+      ],
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "enum": [
+            "CLI_FILE_NOT_FOUND",
+            "CLI_INVALID_JSON",
+            "CLI_VALIDATOR_IMPORT_ERROR",
+            "RUNTIME_CONTEXT_SCHEMA_VALIDATION_ERROR",
+            "RULESET_SCHEMA_VALIDATION_ERROR",
+            "DECISION_OUTPUT_SCHEMA_VALIDATION_ERROR",
+            "AUDIT_TRACE_SCHEMA_VALIDATION_ERROR",
+            "CLI_RUNTIME_ERROR"
+          ]
+        },
+        "error_type": {
+          "type": "string",
+          "enum": [
+            "file_not_found",
+            "invalid_json",
+            "import_error",
+            "schema_validation_error",
+            "runtime_error"
+          ]
+        },
+        "field_path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

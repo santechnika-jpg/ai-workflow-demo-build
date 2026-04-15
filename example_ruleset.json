@@ -1,0 +1,61 @@
+[
+  {
+    "rule_id": "RULE-001",
+    "rule_name": "workflow_id_exists",
+    "description": "WORKFLOW_ID privalo egzistuoti",
+    "target_field": "WORKFLOW_ID",
+    "operator": "exists",
+    "expected_value": null,
+    "severity": "BLOCKING",
+    "failure_message": "WORKFLOW_ID nerastas",
+    "enabled": true
+  },
+  {
+    "rule_id": "RULE-002",
+    "rule_name": "execution_id_not_empty",
+    "description": "EXECUTION_ID negali būti tuščias",
+    "target_field": "EXECUTION_ID",
+    "operator": "not_empty",
+    "expected_value": null,
+    "severity": "BLOCKING",
+    "failure_message": "EXECUTION_ID tuščias arba nerastas",
+    "enabled": true
+  },
+  {
+    "rule_id": "RULE-003",
+    "rule_name": "execution_mode_allowed",
+    "description": "EXECUTION_MODE turi būti leidžiamų reikšmių sąraše",
+    "target_field": "EXECUTION_MODE",
+    "operator": "in_list",
+    "expected_value": [
+      "dry_run",
+      "staged",
+      "live"
+    ],
+    "severity": "BLOCKING",
+    "failure_message": "EXECUTION_MODE reikšmė neleistina arba laukas nerastas",
+    "enabled": true
+  },
+  {
+    "rule_id": "RULE-004",
+    "rule_name": "policy_set_version_exists",
+    "description": "POLICY_SET_VERSION privalo egzistuoti",
+    "target_field": "POLICY_SET_VERSION",
+    "operator": "exists",
+    "expected_value": null,
+    "severity": "BLOCKING",
+    "failure_message": "POLICY_SET_VERSION nerastas",
+    "enabled": true
+  },
+  {
+    "rule_id": "RULE-005",
+    "rule_name": "environment_tag_not_empty",
+    "description": "ENVIRONMENT_TAG neturi būti tuščias",
+    "target_field": "ENVIRONMENT_TAG",
+    "operator": "not_empty",
+    "expected_value": null,
+    "severity": "WARNING",
+    "failure_message": "ENVIRONMENT_TAG tuščias arba nerastas",
+    "enabled": true
+  }
+]

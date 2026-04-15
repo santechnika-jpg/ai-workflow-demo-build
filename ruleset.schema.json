@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/ruleset.schema.json",
+  "title": "RulesetV1",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "rule_id",
+      "rule_name",
+      "description",
+      "target_field",
+      "operator",
+      "expected_value",
+      "severity",
+      "failure_message",
+      "enabled"
+    ],
+    "properties": {
+      "rule_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "rule_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string"
+      },
+      "target_field": {
+        "type": "string",
+        "enum": [
+          "WORKFLOW_ID",
+          "EXECUTION_ID",
+          "WORKFLOW_VERSION",
+          "EXECUTION_MODE",
+          "REQUESTED_ACTION",
+          "INPUT_ARTIFACTS",
+          "REQUIRED_INVARIANTS",
+          "ENVIRONMENT_TAG",
+          "POLICY_SET_VERSION",
+          "TIMESTAMP",
+          "OPTIONAL_METADATA"
+        ]
+      },
+      "operator": {
+        "type": "string",
+        "enum": [
+          "exists",
+          "equals",
+          "not_equals",
+          "in_list",
+          "not_empty"
+        ]
+      },
+      "expected_value": {},
+      "severity": {
+        "type": "string",
+        "enum": [
+          "BLOCKING",
+          "WARNING"
+        ]
+      },
+      "failure_message": {
+        "type": "string",
+        "minLength": 1
+      },
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "operator": {
+              "const": "in_list"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "expected_value": {
+              "type": "array"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

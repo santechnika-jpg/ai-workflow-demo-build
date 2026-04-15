@@ -1,0 +1,25 @@
+{
+  "WORKFLOW_ID": "wf_content_release",
+  "EXECUTION_ID": "exec_2026_04_15_001",
+  "WORKFLOW_VERSION": "1.4.2",
+  "EXECUTION_MODE": "staged",
+  "REQUESTED_ACTION": "start_execution",
+  "INPUT_ARTIFACTS": [
+    {
+      "artifact_id": "doc_17",
+      "artifact_type": "spec"
+    }
+  ],
+  "REQUIRED_INVARIANTS": [
+    "schema_valid",
+    "policy_version_pinned",
+    "executor_not_bypassed"
+  ],
+  "ENVIRONMENT_TAG": "staging",
+  "POLICY_SET_VERSION": "policy_v1.0.0",
+  "TIMESTAMP": "2026-04-15T09:30:00Z",
+  "OPTIONAL_METADATA": {
+    "requestor": "orchestrator",
+    "change_ticket": "CHG-142"
+  }
+}
