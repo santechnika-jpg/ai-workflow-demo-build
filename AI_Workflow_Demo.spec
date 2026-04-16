@@ -2,7 +2,7 @@
 from pathlib import Path
 
 block_cipher = None
-root = Path(__file__).resolve().parent
+root = Path.cwd()
 
 datas = [
     (str(root / "reference_pre_run_validator.py"), "."),
