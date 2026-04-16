@@ -9,11 +9,11 @@ datas = [
     (str(root / "reference_pre_run_validator_cli.py"), "."),
     (str(root / "example_runtime_context.json"), "."),
     (str(root / "example_ruleset.json"), "."),
-    (str(root / "schemas" / "runtime_context.schema.json"), "schemas"),
-    (str(root / "schemas" / "ruleset.schema.json"), "schemas"),
-    (str(root / "schemas" / "decision_output.schema.json"), "schemas"),
-    (str(root / "schemas" / "audit_trace.schema.json"), "schemas"),
-    (str(root / "schemas" / "error_output.schema.json"), "schemas"),
+    (str(root / "runtime_context.schema.json"), "."),
+    (str(root / "ruleset.schema.json"), "."),
+    (str(root / "decision_output.schema.json"), "."),
+    (str(root / "audit_trace.schema.json"), "."),
+    (str(root / "error_output.schema.json"), "."),
 ]
 
 a = Analysis(
